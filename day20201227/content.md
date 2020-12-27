@@ -11,3 +11,6 @@ node_modules 文件夹与 nodejs 中模块化的关系：
 
 [demo01/demo03.js]
 在www.npmjs.com社区网站中，有无数业务需求功能模块存在，可以npm install name 引用包进行模块开发
+
+[demo02]
+package.json 会对项目包进行管理，利用 npm init 可以生成,其中 dependencies 属性表示运行时依赖的 npm 包，当在项目根目录下执行 npm install 时，就会安装 dependencies 下的所有包，值得注意的是符号"^"表示固定版本

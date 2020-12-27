@@ -1,0 +1,20 @@
+{
+  "name": "demo01",
+  "version": "1.0.0",
+  "description": "demo01",
+  "main": "demo03.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "date-utils-2020": "^0.0.2"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "demo02",
+    "good",
+    "mrpopos"
+  ],
+  "author": "mrpopos",
+  "license": "ISC"
+}

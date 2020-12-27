@@ -14,3 +14,5 @@ node_modules 文件夹与 nodejs 中模块化的关系：
 
 [demo02]
 package.json 会对项目包进行管理，利用 npm init 可以生成,其中 dependencies 属性表示运行时依赖的 npm 包，当在项目根目录下执行 npm install 时，就会安装 dependencies 下的所有包，值得注意的是符号"^"表示固定版本
+
+值得注意的是，require 中的相对路径是相对于当前执行目录的而言，fs 读取文件的相对地址是相对执行命令位置

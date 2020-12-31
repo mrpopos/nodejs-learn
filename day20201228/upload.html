@@ -6,7 +6,7 @@
   <title>Document</title>
 </head>
 <body>
-  <form action="http://127.0.0.1:8888/upload" method="POST" enctype="multipart/form-data">
+  <!-- <form action="http://127.0.0.1:8888/upload" method="POST" enctype="multipart/form-data">
     <p>
       姓名：
       <input type="text" name="name" >
@@ -25,11 +25,32 @@
     </p>
     <p>
       选择文件：
-      <input type="file" name="files">
+      <input type="file" name="files" id='files' onchange="handleFileUpload">
     </p>
     <p>
       <input type="submit" value="提交">
     </p>
-  </form>
+  </form> -->
+  <input type="file" name="file" id="file" />
+  <button id="upload">submit</button>
 </body>
 </html>
+
+<script type="text/javascript">
+  var fileObj = document.getElementById('sql_input').files[0];
+  var form = new FormData();
+  form.append('file', fileObj);
+  if(window.XMLHttpRequest){
+      var xhr = new XMLHttpRequest();
+  }else{
+      var xhr = new ActiveXObject('Microsoft.XMLHTTP');
+  }
+  xhr.open('POST',"www.xxx.com");
+  xhr.send(form);
+  xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4){
+          var res = JSON.parse(xhr.response);
+              console.log("上传成功");
+      }
+  };
+</script>

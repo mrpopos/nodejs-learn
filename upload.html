@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <input type="file" id="img">
+  <input type="button" value="提交" onclick="handleUpload()"/>
+
+  <script>
+      function handleUpload(){
+        var fd = new FormData()
+        fd.append('img', document.getElementById('img').files[0])
+
+        var xhr = new XMLHttpRequest()
+        xhr.open('post', 'http://127.0.0.1:8888/upload')
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4){
+            // 接收响应 xhr.responseText
+            console.log(xhr.responseText)
+
+            console.log('上传成功~~~')
+            // 执行回调
+            success()
+          }
+        }
+        xhr.send(fd)
+      }
+
+      function success() {
+        console.log('开始执行成功回调~~~')
+      }
+  </script>
+</body>
+</html>

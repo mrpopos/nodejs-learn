@@ -1,5 +1,4 @@
 const http = require('http')
-const querystring = require('querystring')
 
 const server = http.createServer((req, res) => {
   if (req.url === '/favicon.ico') {
@@ -7,21 +6,22 @@ const server = http.createServer((req, res) => {
   }
 
   if (req.url === '/upload' && req.method.toLowerCase() === 'post') {
-    
-    var data = ''
+    // var data = ''
+    // req.on('data', function (chunk) {
+    //   data += chunk
+    // })
+    // req.on('end', function () {
+    //   // data = decodeURI(data)
+    //   console.log('接收表单文件~~')
+    // })
+    console.log('接收表单文件~~')
 
-    req.on('data', function (chunk) {
-      data += chunk
+    res.writeHead(200, {
+      'Content-Type': 'text/html'
     })
 
-  req.on('end', function () {
-    data = decodeURI(data)
-    console.log(data)
-
-    var dataObject = querystring.parse(data)
-    console.log(dataObject)
-  })
-    res.end(({ "statu": 200 , "ok": true }))
+    var obj = {name: 'zhang san', age: 11, address: 'chengdu', time: '2018-10-10' }
+    res.end(JSON.stringify({ status: 0, data: obj }))
   }
 })
 
